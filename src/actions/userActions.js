@@ -38,9 +38,7 @@ export const apiGithubSearchUsers = ({ username, page = 1, per_page = 20 }) => {
   return async dispatch => {
     dispatch(userIsFetching(true));
     try {
-      const res = await axios.get(
-        `https://api.github.com/search/users?q=${username}+in:login&page=${page}&per_page=${per_page}`
-      );
+      const res = await axios.get(`https://api.github.com/search/users?q=${username}+in:login&page=${page}&per_page=${per_page}`);
       dispatch(userListSet({ result: res && res.data, page }));
       dispatch(userIsFetching(false));
     } catch (error) {
@@ -54,39 +52,35 @@ export const apiGithubSearchUsers = ({ username, page = 1, per_page = 20 }) => {
  * Find additional info of user which is list of repositories, followers and following
  * -------------------------------------------------------------------------------- */
 export const apiGithubUserAdditionalInfo = ({ username }) => {
-  return async dispatch => {
+  return dispatch => {
     try {
-      const resUser = await axios.get(
-        `https://api.github.com/users/${username}`
-      );
-      const resRepositories = await axios.get(
-        `https://api.github.com/search/repositories?q=user:${username}`
-      );
-      const resFollowers = await axios.get(
-        `https://api.github.com/users/${username}/followers`
-      );
-      const resFollowing = await axios.get(
-        `https://api.github.com/users/${username}/following`
-      );
-      dispatch(userSet({ user: resUser.data }));
-      dispatch(
-        itemListActions.set({
-          reducerStateName: "repositoryList",
-          list: resRepositories.data.items
-        })
-      );
-      dispatch(
-        itemListActions.set({
-          reducerStateName: "followerList",
-          list: resFollowers.data
-        })
-      );
-      dispatch(
-        itemListActions.set({
-          reducerStateName: "followingList",
-          list: resFollowing.data
-        })
-      );
+      axios.get(`https://api.github.com/users/${username}`).then((res)=>{
+        dispatch(userSet({ user: res.data }));
+      });
+      axios.get(`https://api.github.com/search/repositories?q=user:${username}`).then(res=>{
+        dispatch(
+          itemListActions.set({
+            reducerStateName: "repositoryList",
+            list: res.data.items
+          })
+        );
+      });
+      axios.get(`https://api.github.com/users/${username}/followers`).then(res=>{
+        dispatch(
+          itemListActions.set({
+            reducerStateName: "followerList",
+            list: res.data
+          })
+        );
+      });
+      axios.get(`https://api.github.com/users/${username}/following`).then(res=>{
+        dispatch(
+          itemListActions.set({
+            reducerStateName: "followingList",
+            list: res.data
+          })
+        );
+      });
     } catch (error) {
       // error handling here
     }

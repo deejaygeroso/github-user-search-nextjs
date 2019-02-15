@@ -90,9 +90,8 @@ class SearchPage extends Component {
    * Navigate to user page. 
    * -------------------------------------------------------------------------------- */
   navigateToUser = (user) => {
-    const { username } = this.state;
     const { userActions } = this.props;
-    userActions.apiGithubUserAdditionalInfo({username});
+    userActions.apiGithubUserAdditionalInfo({username: user.login});
     Router.push({
       pathname: '/user',
       query: { username: user.login }
