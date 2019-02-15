@@ -15,13 +15,38 @@ const styles = theme => ({
 });
 
 class SearchPage extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       username: "",
+      page: 1,
       offset: ""
     };
   }
+
+  /* ----------------------------------------------------------------------------------
+   * After mounting get username & page parameter values on url if exist then
+   * fetch resulting data from github api. 
+   * -------------------------------------------------------------------------------- */
+  componentDidMount(){
+    const { userActions } = this.props;
+    // used for getting url params
+    var vars = {};
+    window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    if(vars.page){
+      this.setState({page: parseInt(vars.page)})
+    }
+    if(vars.username){
+      this.setState({username: vars.username})
+      userActions.apiGithubSearchUsers({ username: vars.username, page: vars.page });
+    }
+  }
+  
+  /* ----------------------------------------------------------------------------------
+   * For Listing Users and showing loading when data is still being fetched 
+   * -------------------------------------------------------------------------------- */
   reunderUserCard() {
     const { userList, userRequestStatus } = this.props;
     // show loading css
@@ -37,6 +62,10 @@ class SearchPage extends Component {
       </Fragment>
     );
   }
+
+  /* ----------------------------------------------------------------------------------
+   * Main Component. 
+   * -------------------------------------------------------------------------------- */
   render() {
     const { classes, userList, userRequestStatus } = this.props;
     return (
@@ -52,6 +81,10 @@ class SearchPage extends Component {
       </div>
     );
   }
+
+  /* ----------------------------------------------------------------------------------
+   * Navigate to user page. 
+   * -------------------------------------------------------------------------------- */
   navigateToUser = (user) => {
     const { username } = this.state;
     const { userActions } = this.props;
@@ -62,18 +95,36 @@ class SearchPage extends Component {
       // query: { name: 'Zeit' }
     })
   }
+
+  /* ----------------------------------------------------------------------------------
+   * While typing update username state. 
+   * -------------------------------------------------------------------------------- */
   onSearchChange = username => {
     this.setState({ username });
   };
+
+  /* ----------------------------------------------------------------------------------
+   * Find user by username. 
+   * -------------------------------------------------------------------------------- */
   onSubmit = username => {
     const { userActions } = this.props;
     this.setState({ username });
     userActions.apiGithubSearchUsers({ username });
+    const href = `/?username=${username}`;
+    const as = href;
+    Router.push(href, as, { shallow: true })
   };
+
+  /* ----------------------------------------------------------------------------------
+   * Find user by username with offset. 
+   * -------------------------------------------------------------------------------- */
   onPaginate = page => {
     const { username } = this.state;
     const { userActions } = this.props;
     userActions.apiGithubSearchUsers({ username, page });
+    const href = `/?username=${username}&page=${page}`;
+    const as = href;
+    Router.push(href, as, { shallow: true })
   };
 }
 

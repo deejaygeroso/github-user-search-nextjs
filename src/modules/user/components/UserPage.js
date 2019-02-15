@@ -43,6 +43,9 @@ class ScrollableTabsButtonAuto extends React.Component {
     this.setState({ value });
   };
 
+  /* ----------------------------------------------------------------------------------
+   * Json Data result. 
+   * -------------------------------------------------------------------------------- */
   renderJsonData() {
     const { user, classes } = this.props;
     return (
@@ -52,6 +55,9 @@ class ScrollableTabsButtonAuto extends React.Component {
     );
   }
 
+  /* ----------------------------------------------------------------------------------
+   * Repository List. 
+   * -------------------------------------------------------------------------------- */
   renderRepositories() {
     const { repositoryList } = this.props;
     return (
@@ -61,6 +67,9 @@ class ScrollableTabsButtonAuto extends React.Component {
     );
   }
 
+  /* ----------------------------------------------------------------------------------
+   * Followers List. 
+   * -------------------------------------------------------------------------------- */
   renderFollowers() {
     const { followerList } = this.props;
     return (
@@ -70,6 +79,9 @@ class ScrollableTabsButtonAuto extends React.Component {
     );
   }
 
+  /* ----------------------------------------------------------------------------------
+   * Following List. 
+   * -------------------------------------------------------------------------------- */
   renderFollowing() {
     const { followingList } = this.props;
     return (
@@ -79,6 +91,9 @@ class ScrollableTabsButtonAuto extends React.Component {
     );
   }
 
+  /* ----------------------------------------------------------------------------------
+   * Main Component. 
+   * -------------------------------------------------------------------------------- */
   render() {
     const { classes, user } = this.props;
     const { value } = this.state;

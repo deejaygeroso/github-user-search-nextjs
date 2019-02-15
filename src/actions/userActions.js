@@ -51,7 +51,6 @@ export const apiGithubSearchUsers = ({ username, page = 1, per_page = 20 }) => {
  * -------------------------------------------------------------------------------- */
 export const apiGithubUserAdditionalInfo = ({ username }) => {
   return async dispatch => {
-    dispatch(userIsFetching(true));
     try {
       const resRepositories = await axios.get(
         `https://api.github.com/search/repositories?q=user:${username}`
