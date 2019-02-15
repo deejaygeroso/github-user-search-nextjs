@@ -11,7 +11,9 @@ const styles = {
     padding: "2px 4px",
     display: "flex",
     alignItems: "center",
-    width: 400
+    marginRight: 20,
+    marginLeft: 20,
+    maxWidth: 550
   },
   input: {
     marginLeft: 8,
@@ -35,7 +37,7 @@ function CustomizedInputBase(props) {
         }}
         onChange={e => onChange(e.target.value)}
         className={classes.input}
-        placeholder="Search Users from Github"
+        placeholder="Search by username"
       />
       <IconButton
         // onClick={() => console.log("ok")}
