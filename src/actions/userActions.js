@@ -1,9 +1,5 @@
 import axios from "axios";
-
-export const USER_SET = "USER_SET";
-export const USER_LIST_SET = "USER_LIST_SET";
-export const USER_REQUEST_STATUS = "USER_REQUEST_STATUS";
-
+import { USER_SET, USER_LIST_SET, USER_REQUEST_STATUS } from '../types/userActionTypes'; 
 import * as itemListActions from "./itemListActions";
 
 /* ----------------------------------------------------------------------------------

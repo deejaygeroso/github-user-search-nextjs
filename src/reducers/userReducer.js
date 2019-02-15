@@ -1,5 +1,5 @@
 import { indexBy as __$indexBy } from "underscore";
-import { USER_SET, USER_LIST_SET, USER_REQUEST_STATUS } from "../actions/userActions";
+import { USER_SET, USER_LIST_SET, USER_REQUEST_STATUS } from '../types/userActionTypes';
 
 const initialUser = {};
 export const user = (state = initialUser, { type, user }) => {

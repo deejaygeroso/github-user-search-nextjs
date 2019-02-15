@@ -5,7 +5,7 @@ const initialItemList = { allIds: [], byId: {} };
 
 export function itemInit(reducerStateName) {
   const ACTION_TYPE = itemListTypes.init(reducerStateName);
-  return function userList(state = initialItemList, { type, list }) {
+  return function(state = initialItemList, { type, list }) {
     switch (type) {
       case ACTION_TYPE.ITEM_LIST_SET: {
         const byId = __$indexBy(list, "id");

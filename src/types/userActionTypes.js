@@ -1,0 +1,3 @@
+export const USER_SET = "USER_SET";
+export const USER_LIST_SET = "USER_LIST_SET";
+export const USER_REQUEST_STATUS = "USER_REQUEST_STATUS";
