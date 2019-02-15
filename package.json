@@ -1,0 +1,39 @@
+{
+  "name": "nextjs",
+  "version": "3.0.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "latest",
+    "@material-ui/icons": "^3.0.2",
+    "axios": "^0.18.0",
+    "jss": "latest",
+    "material-ui-flat-pagination": "^3.2.0",
+    "next": "latest",
+    "next-redux-wrapper": "^3.0.0-alpha.1",
+    "prop-types": "latest",
+    "react": "latest",
+    "react-css-loaders": "0.0.5",
+    "react-dom": "latest",
+    "react-jss": "^8.1.0",
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
+    "styled-jsx": "^3.2.1",
+    "underscore": "^1.9.1"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.13.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4"
+  }
+}
