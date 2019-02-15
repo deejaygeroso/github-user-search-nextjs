@@ -30,9 +30,7 @@ class Header  extends React.Component {
       <CardActionArea onClick={onClick}>
         <CardHeader
           avatar={
-            <Avatar src={user.avatar_url} aria-label="Recipe" className={classes.avatar}>
-              R
-            </Avatar>
+            <Avatar src={user.avatar_url} aria-label="Recipe" className={classes.avatar} />
           }
           title={user.login}
           subheader={user.html_url}

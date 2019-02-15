@@ -9,6 +9,10 @@ import UserCard from "./UserCard";
 import PaginationCard from "./PaginationCard";
 
 const styles = theme => ({
+  root: {
+    marginRight: 20,
+    marginLeft: 20,
+  },
   progress: {
     margin: theme.spacing.unit * 2
   }
@@ -88,11 +92,10 @@ class SearchPage extends Component {
   navigateToUser = (user) => {
     const { username } = this.state;
     const { userActions } = this.props;
-    userActions.userSet({user})
     userActions.apiGithubUserAdditionalInfo({username});
     Router.push({
       pathname: '/user',
-      // query: { name: 'Zeit' }
+      query: { username: user.login }
     })
   }
 

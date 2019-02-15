@@ -1,5 +1,9 @@
 import axios from "axios";
-import { USER_SET, USER_LIST_SET, USER_REQUEST_STATUS } from '../types/userActionTypes'; 
+import {
+  USER_SET,
+  USER_LIST_SET,
+  USER_REQUEST_STATUS
+} from "../types/userActionTypes";
 import * as itemListActions from "./itemListActions";
 
 /* ----------------------------------------------------------------------------------
@@ -52,6 +56,9 @@ export const apiGithubSearchUsers = ({ username, page = 1, per_page = 20 }) => {
 export const apiGithubUserAdditionalInfo = ({ username }) => {
   return async dispatch => {
     try {
+      const resUser = await axios.get(
+        `https://api.github.com/users/${username}`
+      );
       const resRepositories = await axios.get(
         `https://api.github.com/search/repositories?q=user:${username}`
       );
@@ -61,6 +68,7 @@ export const apiGithubUserAdditionalInfo = ({ username }) => {
       const resFollowing = await axios.get(
         `https://api.github.com/users/${username}/following`
       );
+      dispatch(userSet({ user: resUser.data }));
       dispatch(
         itemListActions.set({
           reducerStateName: "repositoryList",

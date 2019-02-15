@@ -44,6 +44,30 @@ class ScrollableTabsButtonAuto extends React.Component {
   };
 
   /* ----------------------------------------------------------------------------------
+   * After mounting get user data by username from parameter values on url if exist then
+   * fetch resulting data from github api. 
+   * -------------------------------------------------------------------------------- */
+  componentDidMount(){
+    const { userActions } = this.props;
+    // used for getting url params
+    var vars = {};
+    window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    if(vars.username){
+      userActions.apiGithubUserAdditionalInfo({ username: vars.username });
+    }
+  }
+
+  /* ----------------------------------------------------------------------------------
+   * Clear User Data when routing to other page. 
+   * -------------------------------------------------------------------------------- */
+  componentWillUnmount(){
+    const { userActions } = this.props;
+    userActions.userSet({ user: {} });
+  }
+
+  /* ----------------------------------------------------------------------------------
    * Json Data result. 
    * -------------------------------------------------------------------------------- */
   renderJsonData() {
@@ -129,6 +153,7 @@ ScrollableTabsButtonAuto.propTypes = {
   repositoryList: PropTypes.object.isRequired,
   followerList: PropTypes.object.isRequired,
   followingList: PropTypes.object.isRequired,
+  userActions : PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired
 };
 
