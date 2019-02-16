@@ -2,6 +2,7 @@ import axios from "axios";
 import {
   USER_SET,
   USER_LIST_SET,
+  USER_LIST_PATCH,
   USER_REQUEST_STATUS
 } from "../types/userActionTypes";
 import * as itemListActions from "./itemListActions";
@@ -32,6 +33,14 @@ export const userListSet = ({ result, page }) => ({
 });
 
 /* ----------------------------------------------------------------------------------
+ * Patch List of User 
+ * -------------------------------------------------------------------------------- */
+export const userListPatch = ({user}) => ({
+  type: USER_LIST_PATCH,
+  user
+})
+
+/* ----------------------------------------------------------------------------------
  * Find list of users.
  * -------------------------------------------------------------------------------- */
 export const apiGithubSearchUsers = ({ username, page = 1, per_page = 20 }) => {
@@ -41,6 +50,14 @@ export const apiGithubSearchUsers = ({ username, page = 1, per_page = 20 }) => {
       const res = await axios.get(`https://api.github.com/search/users?q=${username}+in:login&page=${page}&per_page=${per_page}`);
       dispatch(userListSet({ result: res && res.data, page }));
       dispatch(userIsFetching(false));
+
+      // asynchronous-ly patch user info to have access on number of followers and following per user
+      res.data.items.map((resUser)=>{
+        axios.get(`https://api.github.com/users/${resUser.login}`).then((userInfo)=>{
+            dispatch(userListPatch({user: userInfo.data}))
+          });
+        })
+        
     } catch (error) {
       // error handling here
       dispatch(userIsFetching(false));

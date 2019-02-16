@@ -3,6 +3,7 @@ import * as userReducer from "../userReducer";
 import {
   USER_SET,
   USER_LIST_SET,
+  USER_LIST_PATCH,
   USER_REQUEST_STATUS
 } from "../../types/userActionTypes";
 
@@ -54,6 +55,27 @@ describe("userList - Reducer", () => {
 
     expect(userReducer.userList(state, action)).toEqual(expectedValue);
   });
+
+  it("patches a single data from the list", ()=>{
+    const currentState = {
+      allIds: [1,2],
+      byId: {
+        1: {id: 1, name: '1'},
+        2: {id: 1, name: '2'}
+      },
+      page: 1,
+      total_count: 2
+    };
+    const user = {id: 1, name: "new name"}
+    const action = {
+      type: USER_LIST_PATCH,
+      user,
+    };
+    const { byId } = currentState;
+    byId[user.id] = Object.assign(byId[user.id], user);
+    const expectedValue = Object.assign({}, currentState, { byId });
+    expect(userReducer.userList(currentState, action)).toEqual(expectedValue);
+  })
 });
 
 describe("userRequestStatus - Reducer", () =>{
