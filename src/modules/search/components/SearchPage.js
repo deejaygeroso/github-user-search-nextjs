@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import { SpinLoader } from "react-css-loaders";
 import Router from 'next/router'
+import Typography from "@material-ui/core/Typography";
 
 import SearchField from "./SearchField";
 import UserCard from "./UserCard";
@@ -12,6 +13,7 @@ const styles = theme => ({
   root: {
     marginRight: 20,
     marginLeft: 20,
+    paddingTop: theme.spacing.unit * 20
   },
   progress: {
     margin: theme.spacing.unit * 2
@@ -74,6 +76,9 @@ class SearchPage extends Component {
     const { classes, userList, userRequestStatus } = this.props;
     return (
       <div className={classes.root}>
+        <Typography variant="h4" gutterBottom>
+          Github User Search
+        </Typography>
         <SearchField onSubmit={this.onSubmit} onChange={this.onSearchChange} />
         {this.reunderUserCard()}
         <PaginationCard
@@ -114,7 +119,7 @@ class SearchPage extends Component {
     userActions.apiGithubSearchUsers({ username });
     const href = `/?username=${username}`;
     const as = href;
-    Router.push(href, as, { shallow: true })
+    Router.replace(href, as, { shallow: true })
   };
 
   /* ----------------------------------------------------------------------------------
