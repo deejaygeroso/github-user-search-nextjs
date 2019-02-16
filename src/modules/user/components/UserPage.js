@@ -134,9 +134,9 @@ class ScrollableTabsButtonAuto extends React.Component {
             scrollButtons="auto"
           >
             <Tab label="JSON Data" />
-            <Tab label="Repositories" />
-            <Tab label="Followers" />
-            <Tab label="Following" />
+            <Tab label={`Repositories (${user.public_repos || 0})`} />
+            <Tab label={`Followers (${user.followers || 0})`} />
+            <Tab label={`Following (${user.following || 0})`} />
           </Tabs>
         </AppBar>
         {value === 0 && this.renderJsonData()}
