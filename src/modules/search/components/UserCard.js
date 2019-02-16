@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -15,25 +15,27 @@ const styles = {
   },
   avatar: {
     backgroundColor: red[500]
-  }
+  },
 };
 
 const UserCard = ({ classes, user, onClick }) => (
-  <Card className={classes.card}>
-    <CardActionArea onClick={onClick}>
-      <CardHeader
-        avatar={
-          <Avatar
-            src={user.avatar_url}
-            aria-label="Recipe"
-            className={classes.avatar}
-          />
-        }
-        title={user.login}
-        subheader={`${user.html_url} ${user && user.followers}`}
-      />
-    </CardActionArea>
-  </Card>
+  <Fragment>
+    <Card className={classes.card}>
+      <CardActionArea onClick={onClick}>
+        <CardHeader
+          avatar={
+            <Avatar
+              src={user.avatar_url}
+              aria-label="Recipe"
+              className={classes.avatar}
+            />
+          }
+          title={user.login}
+          subheader={`Followers: ${user && user.followers || 0} Following: ${user && user.following || 0}`}
+        />
+      </CardActionArea>
+    </Card>
+  </Fragment>
 );
 
 UserCard.propTypes = {
