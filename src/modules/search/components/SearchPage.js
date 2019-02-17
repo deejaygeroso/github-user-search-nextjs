@@ -13,10 +13,13 @@ const styles = theme => ({
   root: {
     marginRight: 20,
     marginLeft: 20,
-    paddingTop: theme.spacing.unit * 20
+    paddingTop: theme.spacing.unit * 10
   },
   progress: {
     margin: theme.spacing.unit * 2
+  },
+  logo: {
+    height: 80
   }
 });
 
@@ -76,6 +79,7 @@ class SearchPage extends Component {
     const { classes, userList, userRequestStatus } = this.props;
     return (
       <div className={classes.root}>
+        <img className={classes.logo} src="/static/assets/images/logo.png" alt="Github User Search"/>
         <Typography variant="h4" gutterBottom>
           Github User Search
         </Typography>

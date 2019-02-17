@@ -30,7 +30,8 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.paper
   },
   jsonData: {
-    textAlign: "left"
+    textAlign: "left",
+    overflow: "scroll"
   }
 });
 
