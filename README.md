@@ -36,7 +36,7 @@ This project is built on top of [Next.js](https://github.com/zeit/next.js) which
 
 ## Application
 
-You can view Live Application [here](ec2-18-223-119-153.us-east-2.compute.amazonaws.com).
+You can view Live Application [here](http://ec2-18-223-119-153.us-east-2.compute.amazonaws.com).
 
 **Development:** Installing and running the app on development:
 ```sh
