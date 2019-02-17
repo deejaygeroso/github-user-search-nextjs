@@ -31,8 +31,8 @@ This project is built on top of [Next.js](https://github.com/zeit/next.js) which
  
 ## Application Limitation Using Github Api.  
 - Only the first 1000 search results are available when searching and paginating.  
-- The app is not configured to use Basic Authentication or OAuth for github api so rate limit allows for up to 60 requests per hour only.  
-- The Search API, when using Basic Authentication, OAuth, or client ID and secret, the rate limit allows you to make up to 10 requests per minute.  
+- The app is not configured to use Basic Authentication or OAuth for github api so rate limit for API requests (based on originating IP address) allows for up to 60 requests per hour only.  
+- The Search API, also rate limit allows you to make up to 10 requests per minute.  
 
 ## Application
 
