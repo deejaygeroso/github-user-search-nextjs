@@ -6,6 +6,7 @@ import {
   USER_REQUEST_STATUS
 } from "../types/userActionTypes";
 import * as itemListActions from "./itemListActions";
+const PER_PAGE_LIMIT = 8;
 
 /* ----------------------------------------------------------------------------------
  * Used for showing loading indicator.
@@ -43,7 +44,7 @@ export const userListPatch = ({user}) => ({
 /* ----------------------------------------------------------------------------------
  * Find list of users.
  * -------------------------------------------------------------------------------- */
-export const apiGithubSearchUsers = ({ username, page = 1, per_page = 20 }) => {
+export const apiGithubSearchUsers = ({ username, page = 1, per_page = PER_PAGE_LIMIT }) => {
   return async dispatch => {
     dispatch(userIsFetching(true));
     try {

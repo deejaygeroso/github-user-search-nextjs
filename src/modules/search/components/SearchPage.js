@@ -124,6 +124,7 @@ class SearchPage extends Component {
     userActions.apiGithubSearchUsers({ username });
     const href = `/?username=${username}`;
     const as = href;
+    // window.history.replaceState({}, null, `/?username=${username}`);
     Router.replace(href, as, { shallow: true })
   };
 
@@ -136,6 +137,7 @@ class SearchPage extends Component {
     userActions.apiGithubSearchUsers({ username, page });
     const href = `/?username=${username}&page=${page}`;
     const as = href;
+    // window.history.replaceState({}, null, `/?username=${username}&page=${page}`);
     Router.push(href, as, { shallow: true })
   };
 }

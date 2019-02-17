@@ -5,6 +5,7 @@ import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import Pagination from "material-ui-flat-pagination";
 
 const theme = createMuiTheme();
+const PER_PAGE_LIMIT = 8;
 
 const PaginationCard = ({ total, offset, onClick, isHidden }) => {
   // hide if loading is showing
@@ -12,7 +13,7 @@ const PaginationCard = ({ total, offset, onClick, isHidden }) => {
     return <div/>
   }
   // do not show pagination
-  if (total <= 20) {
+  if (total <= PER_PAGE_LIMIT) {
     return <div />;
   }
   return (
@@ -23,7 +24,7 @@ const PaginationCard = ({ total, offset, onClick, isHidden }) => {
         offset={offset}
         total={total}
         onClick={(e, offset) => {
-          let page = offset / 20 + 1;
+          let page = offset / PER_PAGE_LIMIT + 1;
           onClick(page);
         }}
       />
