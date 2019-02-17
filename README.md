@@ -12,7 +12,6 @@ This project is built on top of [Next.js](https://github.com/zeit/next.js) which
 
   ```js
     ...
-      __mocks__
       pages
       src
         actions
