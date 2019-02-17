@@ -85,6 +85,7 @@ class SearchPage extends Component {
         </Typography>
         <SearchField onSubmit={this.onSubmit} onChange={this.onSearchChange} />
         {this.reunderUserCard()}
+        <br />
         <PaginationCard
           isHidden={userRequestStatus.isFetching}
           offset={(userList.page-1) * 20}
