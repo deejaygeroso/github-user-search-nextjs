@@ -29,7 +29,9 @@ export const userList = (state = initialUserList, { type, result, page=1, user }
     }
     case USER_LIST_PATCH: {
       const { byId } = state;
-      byId[user.id] = Object.assign(byId[user.id], user);
+      if(byId && byId[user.id]){
+        byId[user.id] = Object.assign(byId[user.id], user);
+      }
       return Object.assign({}, state, { byId });
     }
     default: {
