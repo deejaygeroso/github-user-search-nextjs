@@ -16,7 +16,6 @@ const PaginationCard = ({ total, offset, onClick, isHidden }) => {
   if (total <= PER_PAGE_LIMIT) {
     return <div />;
   }
-  console.log('ffset', offset)
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
@@ -25,7 +24,6 @@ const PaginationCard = ({ total, offset, onClick, isHidden }) => {
         offset={offset}
         total={total}
         onClick={(e, offset) => {
-          console.log("OFFSET", offset)
           let page = (offset / PER_PAGE_LIMIT) + 1;
           onClick(page);
         }}
