@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import SearchField from "./SearchField";
 import UserCard from "./UserCard";
 import PaginationCard from "./PaginationCard";
+import { PER_PAGE_LIMIT } from '../../../config';
 
 const styles = theme => ({
   root: {
@@ -88,7 +89,7 @@ class SearchPage extends Component {
         <br />
         <PaginationCard
           isHidden={userRequestStatus.isFetching}
-          offset={(userList.page-1) * 20}
+          offset={(userList.page-1) * PER_PAGE_LIMIT}
           total={userList.total_count}
           onClick={this.onPaginate}
         />
@@ -124,7 +125,7 @@ class SearchPage extends Component {
     userActions.apiGithubSearchUsers({ username });
     const href = `/?username=${username}`;
     const as = href;
-    // window.history.replaceState({}, null, `/?username=${username}`);
+    // window.history.pushState({}, null, `/?username=${username}`);
     Router.replace(href, as, { shallow: true })
   };
 
@@ -137,7 +138,7 @@ class SearchPage extends Component {
     userActions.apiGithubSearchUsers({ username, page });
     const href = `/?username=${username}&page=${page}`;
     const as = href;
-    // window.history.replaceState({}, null, `/?username=${username}&page=${page}`);
+    // window.history.pushState({}, null, `/?username=${username}&page=${page}`);
     Router.push(href, as, { shallow: true })
   };
 }

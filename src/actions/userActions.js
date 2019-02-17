@@ -6,7 +6,7 @@ import {
   USER_REQUEST_STATUS
 } from "../types/userActionTypes";
 import * as itemListActions from "./itemListActions";
-const PER_PAGE_LIMIT = 8;
+import { PER_PAGE_LIMIT } from '../config';
 
 /* ----------------------------------------------------------------------------------
  * Used for showing loading indicator.
