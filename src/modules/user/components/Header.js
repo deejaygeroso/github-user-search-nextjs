@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import Avatar from '@material-ui/core/Avatar';
-import red from '@material-ui/core/colors/red';
+import purple from '@material-ui/core/colors/purple';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import Button from '@material-ui/core/Button';
 import Router from 'next/router'
@@ -16,7 +16,7 @@ const styles = {
     borderRadius: 0
   },
   avatar: {
-    backgroundColor: red[500],
+    backgroundColor: purple[500],
   },
   cardHeader: {
     paddingTop: 10,
@@ -30,6 +30,11 @@ const styles = {
   button: {
     padding: 0,
     margin: 0,
+    backgroundColor: "#fff",
+    "&:hover": {
+        //you want this to be the same as the backgroundColor above
+        backgroundColor: "#fff"
+    }
   }, 
 };
 

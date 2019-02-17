@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
-import { SpinLoader } from "react-css-loaders";
+import { RotateSpinLoader } from "react-css-loaders";
 import Router from 'next/router'
 import Typography from "@material-ui/core/Typography";
 
@@ -61,7 +61,7 @@ class SearchPage extends Component {
     const { userList, userRequestStatus } = this.props;
     // show loading css
     if (userRequestStatus.isFetching) {
-      return <SpinLoader />;
+      return <RotateSpinLoader color={"purple"}/>;
     }
     return (
       <Fragment>
@@ -81,8 +81,11 @@ class SearchPage extends Component {
     return (
       <div className={classes.root}>
         <img className={classes.logo} src="/static/assets/images/logo.jpg" alt="Github User Search"/>
-        <Typography variant="h4" gutterBottom>
-          Github User Search
+        <Typography variant="h4" >
+          Search
+        </Typography>
+        <Typography  gutterBottom>
+          Github Users Here!
         </Typography>
         <SearchField onSubmit={this.onSubmit} onChange={this.onSearchChange} />
         {this.reunderUserCard()}

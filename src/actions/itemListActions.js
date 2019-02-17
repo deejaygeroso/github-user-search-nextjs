@@ -1,7 +1,7 @@
 import itemListTypes from "../types/itemListTypes";
 
 /* ----------------------------------------------------------------------------------
- * Set a single user.
+ * Set a list of data.
  * -------------------------------------------------------------------------------- */
 export const set = ({ reducerStateName, list }) => {
   const ACTION_TYPE = itemListTypes.init(reducerStateName);

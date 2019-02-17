@@ -22,7 +22,7 @@ const styles = {
   },
 };
 
-function CustomizedInputBase(props) {
+function SearchField(props) {
   const { classes, onChange, onSubmit } = props;
   return (
     <Paper className={classes.root} elevation={1}>
@@ -48,10 +48,10 @@ function CustomizedInputBase(props) {
   );
 }
 
-CustomizedInputBase.propTypes = {
+SearchField.propTypes = {
   onChange : PropTypes.func.isRequired,
   onSubmit : PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(CustomizedInputBase);
+export default withStyles(styles)(SearchField);

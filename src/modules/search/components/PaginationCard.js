@@ -1,10 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import Pagination from "material-ui-flat-pagination";
 
-const theme = createMuiTheme();
+// const theme = createMuiTheme();
 import { PER_PAGE_LIMIT } from '../../../config';
 
 const PaginationCard = ({ total, offset, onClick, isHidden }) => {
@@ -17,8 +15,6 @@ const PaginationCard = ({ total, offset, onClick, isHidden }) => {
     return <div />;
   }
   return (
-    <MuiThemeProvider theme={theme}>
-      <CssBaseline />
       <Pagination
         limit={PER_PAGE_LIMIT}
         offset={offset}
@@ -28,7 +24,6 @@ const PaginationCard = ({ total, offset, onClick, isHidden }) => {
           onClick(page);
         }}
       />
-    </MuiThemeProvider>
   );
 };
 

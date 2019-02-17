@@ -1,6 +1,9 @@
 import { indexBy as __$indexBy } from "underscore";
 import { USER_SET, USER_LIST_SET, USER_LIST_PATCH, USER_REQUEST_STATUS } from '../types/userActionTypes';
 
+/* ----------------------------------------------------------------------------------
+ *  Used for viewing more information of selected user from search result.
+ * -------------------------------------------------------------------------------- */
 const initialUser = {};
 export const user = (state = initialUser, { type, user }) => {
   switch (type) {
@@ -19,6 +22,9 @@ const initialUserList = {
     page: 1,
     total_count: 0,
 };
+/* ----------------------------------------------------------------------------------
+ * List of users reducer based from search results. 
+ * -------------------------------------------------------------------------------- */
 export const userList = (state = initialUserList, { type, result, page=1, user }) => {
   switch (type) {
     case USER_LIST_SET: {
@@ -40,6 +46,9 @@ export const userList = (state = initialUserList, { type, result, page=1, user }
   }
 };
 
+/* ----------------------------------------------------------------------------------
+ * Request status reducer mainly used for showing loadingscreen while fetching data. 
+ * -------------------------------------------------------------------------------- */
 const initialUserRequestStatus = { isFetching: false };
 export const userRequestStatus = (state = initialUserRequestStatus, {type, isFetching}) => {
     switch(type){

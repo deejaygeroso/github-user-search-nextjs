@@ -3,6 +3,9 @@ import itemListTypes from "../types/itemListTypes";
 
 const initialItemList = { allIds: [], byId: {} };
 
+/* ----------------------------------------------------------------------------------
+ * Reusable reducer used for  repositoryList, followerList and followingList
+ * -------------------------------------------------------------------------------- */
 export function itemInit(reducerStateName) {
   const ACTION_TYPE = itemListTypes.init(reducerStateName);
   return function(state = initialItemList, { type, list }) {
