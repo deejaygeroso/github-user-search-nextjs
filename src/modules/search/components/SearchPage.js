@@ -79,7 +79,7 @@ class SearchPage extends Component {
     const { classes, userList, userRequestStatus } = this.props;
     return (
       <div className={classes.root}>
-        <img className={classes.logo} src="/static/assets/images/logo.png" alt="Github User Search"/>
+        <img className={classes.logo} src="/static/assets/images/logo.jpg" alt="Github User Search"/>
         <Typography variant="h4" gutterBottom>
           Github User Search
         </Typography>
