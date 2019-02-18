@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="MuiPaper-root-7 MuiPaper-elevation1-10 MuiPaper-rounded-8 MuiCard-root-6 Header-card-1"
+>
+  <button
+    className="MuiButtonBase-root-60 MuiButton-root-34 MuiButton-text-36 MuiButton-flat-39 Header-button-5"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onContextMenu={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex="0"
+    type="button"
+  >
+    <span
+      className="MuiButton-label-35"
+    >
+      <svg
+        aria-hidden="true"
+        className="MuiSvgIcon-root-63 Header-iconHover-4"
+        focusable="false"
+        role="presentation"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+        />
+        <path
+          d="M0 0h24v24H0V0z"
+          fill="none"
+        />
+      </svg>
+    </span>
+    <span
+      className="MuiTouchRipple-root-81"
+    />
+  </button>
+  <div
+    className="MuiCardHeader-root-72 Header-cardHeader-3"
+  >
+    <div
+      className="MuiCardHeader-avatar-73"
+    >
+      <div
+        aria-label="Recipe"
+        className="MuiAvatar-root-78 MuiAvatar-colorDefault-79 Header-avatar-2"
+      />
+    </div>
+    <div
+      className="MuiCardHeader-content-75"
+    />
+  </div>
+</div>
+`;

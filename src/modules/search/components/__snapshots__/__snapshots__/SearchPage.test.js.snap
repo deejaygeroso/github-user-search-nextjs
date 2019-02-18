@@ -1,0 +1,192 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="SearchPage-root-1"
+>
+  <img
+    alt="Github User Search"
+    className="SearchPage-logo-3"
+    src="/static/assets/images/logo.jpg"
+  />
+  <h4
+    className="MuiTypography-root-4 MuiTypography-h4-19"
+  >
+    Search
+  </h4>
+  <p
+    className="MuiTypography-root-4 MuiTypography-body1-13 MuiTypography-gutterBottom-31"
+  >
+    Github Users Here!
+  </p>
+  <div
+    className="MuiPaper-root-43 MuiPaper-elevation1-46 MuiPaper-rounded-44 SearchField-root-40"
+  >
+    <div
+      className="MuiInputBase-root-70 SearchField-input-41"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+    >
+      <input
+        className="MuiInputBase-input-80"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="Search by username"
+        type="text"
+      />
+    </div>
+    <button
+      aria-label="Search"
+      className="MuiButtonBase-root-93 MuiIconButton-root-87 SearchField-iconButton-42"
+      disabled={false}
+      onBlur={[Function]}
+      onContextMenu={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex="0"
+      type="button"
+    >
+      <span
+        className="MuiIconButton-label-92"
+      >
+        <svg
+          aria-hidden="true"
+          className="MuiSvgIcon-root-96"
+          focusable="false"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+          />
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+        </svg>
+      </span>
+      <span
+        className="MuiTouchRipple-root-120"
+      />
+    </button>
+  </div>
+  <div
+    className="MuiPaper-root-43 MuiPaper-elevation1-46 MuiPaper-rounded-44 MuiCard-root-107 UserCard-card-105"
+  >
+    <button
+      className="MuiButtonBase-root-93 MuiCardActionArea-root-108"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex="0"
+      type="button"
+    >
+      <div
+        className="MuiCardHeader-root-111"
+      >
+        <div
+          className="MuiCardHeader-avatar-112"
+        >
+          <div
+            aria-label="Recipe"
+            className="MuiAvatar-root-117 MuiAvatar-colorDefault-118 UserCard-avatar-106"
+          />
+        </div>
+        <div
+          className="MuiCardHeader-content-114"
+        >
+          <span
+            className="MuiTypography-root-4 MuiTypography-body2-12 MuiCardHeader-title-115"
+          >
+            username 1
+          </span>
+          <span
+            className="MuiTypography-root-4 MuiTypography-body2-12 MuiTypography-colorTextSecondary-37 MuiCardHeader-subheader-116"
+          >
+            Followers: 650 Following: 12
+          </span>
+        </div>
+      </div>
+      <span
+        className="MuiCardActionArea-focusHighlight-110"
+      />
+      <span
+        className="MuiTouchRipple-root-120"
+      />
+    </button>
+  </div>
+  <div
+    className="MuiPaper-root-43 MuiPaper-elevation1-46 MuiPaper-rounded-44 MuiCard-root-107 UserCard-card-105"
+  >
+    <button
+      className="MuiButtonBase-root-93 MuiCardActionArea-root-108"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex="0"
+      type="button"
+    >
+      <div
+        className="MuiCardHeader-root-111"
+      >
+        <div
+          className="MuiCardHeader-avatar-112"
+        >
+          <div
+            aria-label="Recipe"
+            className="MuiAvatar-root-117 MuiAvatar-colorDefault-118 UserCard-avatar-106"
+          />
+        </div>
+        <div
+          className="MuiCardHeader-content-114"
+        >
+          <span
+            className="MuiTypography-root-4 MuiTypography-body2-12 MuiCardHeader-title-115"
+          >
+            username 2
+          </span>
+          <span
+            className="MuiTypography-root-4 MuiTypography-body2-12 MuiTypography-colorTextSecondary-37 MuiCardHeader-subheader-116"
+          >
+            Followers: 63 Following: 24
+          </span>
+        </div>
+      </div>
+      <span
+        className="MuiCardActionArea-focusHighlight-110"
+      />
+      <span
+        className="MuiTouchRipple-root-120"
+      />
+    </button>
+  </div>
+  <br />
+  <div />
+</div>
+`;

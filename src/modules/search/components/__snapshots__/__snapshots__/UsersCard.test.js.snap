@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="MuiPaper-root-4 MuiPaper-elevation1-7 MuiPaper-rounded-5 MuiCard-root-3 UserCard-card-1"
+>
+  <button
+    className="MuiButtonBase-root-34 MuiCardActionArea-root-31"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onContextMenu={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex="0"
+    type="button"
+  >
+    <div
+      className="MuiCardHeader-root-37"
+    >
+      <div
+        className="MuiCardHeader-avatar-38"
+      >
+        <div
+          aria-label="Recipe"
+          className="MuiAvatar-root-43 MuiAvatar-colorDefault-44 UserCard-avatar-2"
+        />
+      </div>
+      <div
+        className="MuiCardHeader-content-40"
+      >
+        <span
+          className="MuiTypography-root-46 MuiTypography-body2-54 MuiCardHeader-title-41"
+        >
+          username
+        </span>
+        <span
+          className="MuiTypography-root-46 MuiTypography-body2-54 MuiTypography-colorTextSecondary-79 MuiCardHeader-subheader-42"
+        >
+          Followers: 650 Following: 12
+        </span>
+      </div>
+    </div>
+    <span
+      className="MuiCardActionArea-focusHighlight-33"
+    />
+    <span
+      className="MuiTouchRipple-root-82"
+    />
+  </button>
+</div>
+`;

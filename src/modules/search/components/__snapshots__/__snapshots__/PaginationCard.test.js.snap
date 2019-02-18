@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="MuiFlatPagination-root-1"
+>
+  <button
+    className="MuiButtonBase-root-75 MuiButton-root-49 MuiFlatPageButton-root-25 MuiFlatPageButton-rootEnd-28 MuiFlatPagination-rootEnd-4 MuiButton-text-51 MuiFlatPageButton-text-31 MuiFlatPagination-text-7 MuiButton-textPrimary-52 MuiFlatPageButton-textPrimary-32 MuiFlatPagination-textPrimary-8 MuiButton-flat-54 MuiButton-flatPrimary-55"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onContextMenu={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex="0"
+    type="button"
+  >
+    <span
+      className="MuiButton-label-50 MuiFlatPageButton-label-30 MuiFlatPagination-label-6"
+    >
+      &lt;
+    </span>
+    <span
+      className="MuiTouchRipple-root-78"
+    />
+  </button>
+  <button
+    className="MuiButtonBase-root-75 MuiButton-root-49 MuiFlatPageButton-root-25 MuiFlatPageButton-rootStandard-29 MuiFlatPagination-rootStandard-5 MuiButton-text-51 MuiFlatPageButton-text-31 MuiFlatPagination-text-7 MuiButton-textPrimary-52 MuiFlatPageButton-textPrimary-32 MuiFlatPagination-textPrimary-8 MuiButton-flat-54 MuiButton-flatPrimary-55"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onContextMenu={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex="0"
+    type="button"
+  >
+    <span
+      className="MuiButton-label-50 MuiFlatPageButton-label-30 MuiFlatPagination-label-6"
+    >
+      1
+    </span>
+    <span
+      className="MuiTouchRipple-root-78"
+    />
+  </button>
+  <button
+    className="MuiButtonBase-root-75 MuiButton-root-49 MuiFlatPageButton-root-25 MuiFlatPageButton-rootStandard-29 MuiFlatPagination-rootStandard-5 MuiButton-text-51 MuiFlatPageButton-text-31 MuiFlatPagination-text-7 MuiButton-textPrimary-52 MuiFlatPageButton-textPrimary-32 MuiFlatPagination-textPrimary-8 MuiButton-flat-54 MuiButton-flatPrimary-55"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onContextMenu={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex="0"
+    type="button"
+  >
+    <span
+      className="MuiButton-label-50 MuiFlatPageButton-label-30 MuiFlatPagination-label-6"
+    >
+      2
+    </span>
+    <span
+      className="MuiTouchRipple-root-78"
+    />
+  </button>
+  <button
+    className="MuiButtonBase-root-75 MuiButton-root-49 MuiFlatPageButton-root-25 MuiFlatPageButton-rootCurrent-26 MuiFlatPagination-rootCurrent-2 MuiButton-text-51 MuiFlatPageButton-text-31 MuiFlatPagination-text-7 MuiButton-textSecondary-53 MuiFlatPageButton-textSecondary-33 MuiFlatPagination-textSecondary-9 MuiButton-flat-54 MuiButton-flatSecondary-56"
+    disabled={false}
+    onBlur={[Function]}
+    onContextMenu={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex="0"
+    type="button"
+  >
+    <span
+      className="MuiButton-label-50 MuiFlatPageButton-label-30 MuiFlatPagination-label-6"
+    >
+      3
+    </span>
+  </button>
+  <button
+    className="MuiButtonBase-root-75 MuiButtonBase-disabled-76 MuiButton-root-49 MuiFlatPageButton-root-25 MuiFlatPageButton-rootEnd-28 MuiFlatPagination-rootEnd-4 MuiButton-text-51 MuiFlatPageButton-text-31 MuiFlatPagination-text-7 MuiButton-textPrimary-52 MuiFlatPageButton-textPrimary-32 MuiFlatPagination-textPrimary-8 MuiButton-flat-54 MuiButton-flatPrimary-55 MuiButton-disabled-69 MuiFlatPageButton-disabled-37 MuiFlatPagination-disabled-13"
+    disabled={true}
+    onBlur={[Function]}
+    onContextMenu={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex="-1"
+    type="button"
+  >
+    <span
+      className="MuiButton-label-50 MuiFlatPageButton-label-30 MuiFlatPagination-label-6"
+    >
+      &gt;
+    </span>
+  </button>
+</div>
+`;
