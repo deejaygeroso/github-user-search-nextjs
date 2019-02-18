@@ -2,6 +2,7 @@ import * as userActions from "../userActions";
 import {
   USER_SET,
   USER_LIST_SET,
+  USER_LIST_PATCH,
   USER_REQUEST_STATUS
 } from "../../types/userActionTypes";
 
@@ -34,4 +35,12 @@ describe("userActions - ACTION CREATOR", () => {
     };
     expect(userActions.userListSet({result, page})).toEqual(expectedAction);
   });
+  it('userListPatch', ()=>{
+    const user = {};
+    const expectedAction = {
+      type: USER_LIST_PATCH,
+      user
+    }
+    expect(userActions.userListPatch({user})).toEqual(expectedAction);
+  })
 });
