@@ -49,7 +49,7 @@ export const apiGithubSearchUsers = ({ username, page = 1, per_page = PER_PAGE_L
     dispatch(userIsFetching(true));
     try {
       const res = await axios.get(`https://api.github.com/search/users?q=${username}+in:login&page=${page}&per_page=${per_page}`);
-      dispatch(userListSet({ result: res && res.data, page }));
+      // dispatch(userListSet({ result: res && res.data, page }));
       dispatch(userIsFetching(false));
 
       // asynchronous-ly patch user info to have access on number of followers and following per user
