@@ -1,13 +1,13 @@
-import React from "react";
-import UserPage from "../UserPage";
-import renderer from "react-test-renderer";
+// import React from "react";
+// import UserPage from "../UserPage";
+// import renderer from "react-test-renderer";
 
 /* ----------------------------------------------------------------------------------
  * Snapshot fail because: 
  * Variant Scroll related 
  * Error: Uncaught [TypeError: Cannot read property 'scrollWidth' of null 
  * -------------------------------------------------------------------------------- */
-it("renders correctly", () => {
+// it("renders correctly", () => {
 //     const props = {
 //       user : {
 //         public_repos: 25,
@@ -22,4 +22,4 @@ it("renders correctly", () => {
 //   }
 //   const tree = renderer.create(<UserPage {...props} />).toJSON();
 //   expect(tree).toMatchSnapshot();
-});
+// });
