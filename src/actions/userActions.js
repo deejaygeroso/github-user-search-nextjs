@@ -49,11 +49,12 @@ export const apiGithubSearchUsers = ({ username, page = 1, per_page = PER_PAGE_L
     dispatch(userIsFetching(true));
     try {
       const res = await axios.get(`https://api.github.com/search/users?q=${username}+in:login&page=${page}&per_page=${per_page}`);
-      // dispatch(userListSet({ result: res && res.data, page }));
+      dispatch(userListSet({ result: res && res.data, page }));
       dispatch(userIsFetching(false));
 
       // asynchronous-ly patch user info to have access on number of followers and following per user
       res.data.items.map((resUser)=>{
+        // console.log('ok - 2')
         axios.get(`https://api.github.com/users/${resUser.login}`).then((userInfo)=>{
             dispatch(userListPatch({user: userInfo.data}))
           });
@@ -70,12 +71,12 @@ export const apiGithubSearchUsers = ({ username, page = 1, per_page = PER_PAGE_L
  * Find additional info of user which is list of repositories, followers and following
  * -------------------------------------------------------------------------------- */
 export const apiGithubUserAdditionalInfo = ({ username }) => {
-  return dispatch => {
+  return async dispatch => {
     try {
-      axios.get(`https://api.github.com/users/${username}`).then((res)=>{
+      await axios.get(`https://api.github.com/users/${username}`).then((res)=>{
         dispatch(userSet({ user: res.data }));
       });
-      axios.get(`https://api.github.com/search/repositories?q=user:${username}`).then(res=>{
+      await axios.get(`https://api.github.com/search/repositories?q=user:${username}`).then(res=>{
         dispatch(
           itemListActions.set({
             reducerStateName: "repositoryList",
@@ -83,7 +84,7 @@ export const apiGithubUserAdditionalInfo = ({ username }) => {
           })
         );
       });
-      axios.get(`https://api.github.com/users/${username}/followers`).then(res=>{
+      await axios.get(`https://api.github.com/users/${username}/followers`).then(res=>{
         dispatch(
           itemListActions.set({
             reducerStateName: "followerList",
@@ -91,7 +92,7 @@ export const apiGithubUserAdditionalInfo = ({ username }) => {
           })
         );
       });
-      axios.get(`https://api.github.com/users/${username}/following`).then(res=>{
+      await axios.get(`https://api.github.com/users/${username}/following`).then(res=>{
         dispatch(
           itemListActions.set({
             reducerStateName: "followingList",
@@ -101,6 +102,7 @@ export const apiGithubUserAdditionalInfo = ({ username }) => {
       });
     } catch (error) {
       // error handling here
+      dispatch(userIsFetching(false));
     }
   };
 };

@@ -6,6 +6,7 @@ import {
   USER_REQUEST_STATUS
 } from "../../types/userActionTypes";
 import { PER_PAGE_LIMIT } from '../../config';
+import itemListTypes from "../../types/itemListTypes";
 
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -57,37 +58,102 @@ describe("userActions - ACTION CREATOR", () => {
     }
     expect(userActions.userListPatch({user})).toEqual(expectedAction);
   });
-  it('apiGithubSearchUsers - fetch github user by username', ()=>{
-    const data = [
-      {
-        id: 1,
-        login: 'username 1',
-      },
-      {
-        id: 2,
-        login: 'username 2',
-      }
-    ]
-    const page = 1;
-    moxios.wait(() => {
-      const request = moxios.requests.mostRecent();
-      request.respondWith({
-        status: 200,
-        data: data,
+  /* ----------------------------------------------------------------------------------
+   * TODO: not tested -> asynchronous-ly patch user info to have access on 
+   * number of followers and following per user
+   * -------------------------------------------------------------------------------- */
+  describe('apiGithubSearchUsers', ()=>{
+    it('successfully fetch github user by username. ', ()=>{
+      const data = [ { id: 1, login: 'username 1' }, { id: 2, login: 'username 2' } ];
+      const page = 1;
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.respondWith({
+          status: 200,
+          response: {
+            incomplete_results: false,
+            items: data,
+            total_count: 1,
+          },
+        });
       });
-    });
-    const expectedActions = [
-      { type: USER_REQUEST_STATUS, isFetching: true },
-      // { type: USER_REQUEST_STATUS, isFetching: false },
-      // { type: USER_LIST_SET, result: data, page: 1 },
-    ];
-    const store = mockStore({ userList: {} })
-    const username = 'username';
-    return store.dispatch(userActions.apiGithubSearchUsers({ username, page, per_page: PER_PAGE_LIMIT })).then(() => {
-      // return of async actions
-      const dispatchedActions = store.getActions();
-      const actionTypes = dispatchedActions.map(action => action.type);
-      expect(actionTypes).toEqual(expectedActions.map(action=>action.type));
+      const expectedActionsInSequence = [
+        { type: USER_REQUEST_STATUS, isFetching: true },
+        { type: USER_LIST_SET, result: data, page: 1 },
+        { type: USER_REQUEST_STATUS, isFetching: false },
+      ];
+      const store = mockStore({ userList: {} })
+      const username = 'username';
+      // Expected actions to be dispatched
+      return store.dispatch(userActions.apiGithubSearchUsers({ username, page, per_page: PER_PAGE_LIMIT })).then(() => {
+        const dispatchedActions = store.getActions();
+        const actionTypes = dispatchedActions.map(action => action.type);
+        expect(actionTypes).toEqual(expectedActionsInSequence.map(action=>action.type));
+      });
+    })
+  })
+
+  describe('apiGithubSearchUsers', ()=>{
+    it('successfully find additional user info with repository, followers and following list data', async ()=>{
+
+      const user = {id: 1, login: 'username' };
+      const repositoryList = [{id: 1}, {id: 2}];
+      const followerList   = [{id: 1}, {id: 2}];
+      const followingList  = [{id: 1}, {id: 2}];
+
+      moxios.wait(() => {
+        // user api call
+        const userRequest = moxios.requests.mostRecent();
+        userRequest.respondWith({
+          status: 200,
+          response: user
+        }).then(()=>{
+          // repositoryList api call
+          const repositoryRequest = moxios.requests.mostRecent();
+          repositoryRequest.respondWith({
+              status: 200,
+              response: { items: repositoryList }
+          }).then(()=>{
+            // followersList api call
+            const followerRequest = moxios.requests.mostRecent();
+            followerRequest.respondWith({
+                status: 200,
+                response: followerList
+            }).then(()=>{
+              // folowingList api call
+              const followingRequest = moxios.requests.mostRecent();
+              followingRequest.respondWith({
+                  status: 200,
+                  response: followingList
+              });
+            });
+          });
+        });
+      })
+
+      // get all repository action type that will be used for dispatching actions
+      const REPOSITORY_TYPE = itemListTypes.init('repositoryList');
+      const FOLLOWER_TYPE   = itemListTypes.init('followerList');
+      const FOLLOWING_TYPE  = itemListTypes.init('followingList');
+
+      // must be in sequence when for checking dispatched actions
+      const expectedActionsInSequence = [
+        { type: USER_SET, user },
+        { type: REPOSITORY_TYPE.ITEM_LIST_SET, list: repositoryList },
+        { type: FOLLOWER_TYPE.ITEM_LIST_SET,   list: followerList },
+        { type: FOLLOWING_TYPE.ITEM_LIST_SET,  list: followingList }
+      ];
+
+      const store = mockStore({ userList: {} })
+      const username = 'username';
+
+      // expect all actions will have dispatched all expectedActionsInSequence object
+      return store.dispatch(userActions.apiGithubUserAdditionalInfo({ username })).then(() => {
+        const dispatchedActions = store.getActions();
+        expect(dispatchedActions).toEqual(expectedActionsInSequence);
+      });
+  
     });
   })
+
 });
