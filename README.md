@@ -57,5 +57,11 @@ npm run start
 npm run lint
 ```
 
+**Test:** 
+
+```sh
+npm run test
+```
+
 
 
