@@ -1,5 +1,5 @@
-# Oddle Project
-This project is built on top of [Next.js](https://github.com/zeit/next.js) which is a framework for server-rendered React apps. One of its amazing features is it supports [lazy loading modules](https://nextjs.org/learn/excel/lazy-loading-modules) that does automatic code splitting which is based on the pages of the app and theres a lot more to this framework. 
+# Github User Search
+A simple page for searching user in github.
 
 **Other Technologies Used:**  
 [Redux](https://redux.js.org/) - for handling state management of the project and uses.  
